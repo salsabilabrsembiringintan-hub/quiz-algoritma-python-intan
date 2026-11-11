@@ -1,8 +1,8 @@
-# Program cek kelulusan ujian matematika
+# Program Cek Kelulusan Ujian Matematika
 
-nama = input("Nama : ").title()
+nama = input("Masukkan nama mahasiswa: ")
 
-# tentukan target nilai sesuai nama
+# menentukan target nilai sesuai nama
 if nama == "Andi":
     target = 70
 elif nama == "Budi":
@@ -11,23 +11,25 @@ elif nama == "Citra":
     target = 80
 else:
     target = 0
-
-if target == 0:
     print("Nama tidak terdaftar")
-else:
+
+if target != 0:
     print("Target nilai", nama, ":", target)
 
     percobaan = 0
     lulus = False
 
-    while percobaan < 3:
+    while percobaan < 3 and lulus == False:
         percobaan = percobaan + 1
         nilai = int(input("Nilai " + str(percobaan) + " : "))
 
         if nilai >= target:
             lulus = True
-            break   # kalau sudah lulus, berhenti
+        else:
+            if percobaan < 3:
+                print("Nilai belum mencapai target, ikut remedial!")
 
+    print()
     if lulus:
         print(nama, "berhasil lulus setelah", percobaan, "kali percobaan!")
     else:
