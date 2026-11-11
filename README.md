@@ -1,8 +1,9 @@
-# Program cek kelulusan ujian matematika
+# Quiz Algoritma Python - Cek Kelulusan Ujian Matematika
 
-nama = input("Nama : ").title()
+print("=== PROGRAM CEK KELULUSAN ===")
+nama = input("Nama mahasiswa : ")
 
-# tentukan target nilai sesuai nama
+# tentukan target nilai tiap mahasiswa
 if nama == "Andi":
     target = 70
 elif nama == "Budi":
@@ -13,22 +14,28 @@ else:
     target = 0
 
 if target == 0:
-    print("Nama tidak terdaftar")
+    print("Maaf, nama tidak ada di data")
 else:
-    print("Target nilai", nama, ":", target)
+    print("Target nilai", nama, "adalah", target)
+    print()
 
-    percobaan = 0
+    ke = 1
     lulus = False
 
-    while percobaan < 3:
-        percobaan = percobaan + 1
-        nilai = int(input("Nilai " + str(percobaan) + " : "))
+    # ulangi maksimal 3 kali
+    while ke <= 3:
+        nilai = int(input("Nilai " + str(ke) + " : "))
 
         if nilai >= target:
             lulus = True
-            break   # kalau sudah lulus, berhenti
+            break
+        else:
+            if ke < 3:
+                print("Belum mencapai target, harus remedial")
+            ke = ke + 1
 
-    if lulus:
-        print(nama, "berhasil lulus setelah", percobaan, "kali percobaan!")
+    print()
+    if lulus == True:
+        print(nama, "berhasil lulus setelah", ke, "kali percobaan!")
     else:
         print(nama, "tidak lulus setelah 3 kali percobaan!")
