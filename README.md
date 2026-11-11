@@ -1,4 +1,3 @@
-
 # Program cek kelulusan ujian matematika
 
 nama = input("Nama : ").title()
